@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/system/game_ui/game_ui.gd" type="Script" id=1]
+[ext_resource path="res://src/system/save/game_saver.tscn" type="PackedScene" id=2]
+
+[node name="ui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="container" type="HBoxContainer" parent="."]
+anchor_left = 0.904382
+anchor_right = 1.0
+anchor_bottom = 0.0689655
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="btn_save" type="Button" parent="container"]
+margin_right = 43.0
+margin_bottom = 39.0
+text = "SAVE"
+
+[node name="btn_load" type="Button" parent="container"]
+margin_left = 47.0
+margin_right = 96.0
+margin_bottom = 39.0
+text = "LOAD"
+
+[node name="game_saver" parent="." instance=ExtResource( 2 )]
+[connection signal="pressed" from="container/btn_save" to="." method="_on_btn_save_pressed"]
+[connection signal="pressed" from="container/btn_load" to="." method="_on_btn_load_pressed"]
