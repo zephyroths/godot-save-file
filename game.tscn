@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/character/character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scripts/player.gd" type="Script" id=2]
+[ext_resource path="res://src/system/game_ui/game_ui.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/scripts/game_switches.gd" type="Script" id=4]
+
+[node name="game" type="Node"]
+
+[node name="switches" type="Node" parent="." groups=[
+"save",
+]]
+script = ExtResource( 4 )
+
+[node name="player" parent="." groups=[
+"save",
+] instance=ExtResource( 1 )]
+position = Vector2( 309, 283 )
+script = ExtResource( 2 )
+
+[node name="npc" parent="." instance=ExtResource( 1 )]
+position = Vector2( 717, 285 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ui" parent="CanvasLayer" instance=ExtResource( 3 )]
